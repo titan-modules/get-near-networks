@@ -16,6 +16,10 @@
 			"default": "NULL", 
 			"type": "text"
 		},
+		"mode": {
+			"default": "NULL", 
+			"type": "text"
+		},
 		"security": {
 			"default": "NULL", 
 			"type": "text"
@@ -26,6 +30,10 @@
 		},
 		"noise": {
 			"default": "NULL",
+			"type": "text"
+		},
+		"connected": {
+			"default": "false",
 			"type": "text"
 		}
 	}
