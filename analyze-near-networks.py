@@ -33,7 +33,7 @@ logging_enabled = False
 # Set datastore directory
 DATASTORE = argv[1]
 
-#@run_every_60
+@run_every_60
 class AnalyzeNearNetworks(object):
     """ AnalyzeNearNetworks """
 
@@ -51,12 +51,12 @@ class AnalyzeNearNetworks(object):
 
       # Read them from plist
       access_points = plist.read_plist('/tmp/titan-localnet.plist')
-      
-      #       
+
+      # Check for connected or not
       if 'spairport_airport_other_local_wireless_networks' in access_points[0]['_items'][0]['spairport_airport_interfaces'][0]:
         aps = access_points[0]['_items'][0]['spairport_airport_interfaces'][0]['spairport_airport_other_local_wireless_networks']
 
-        # Set connected flag
+        # Add in current connected network
         aps += [access_points[0]['_items'][0]['spairport_airport_interfaces'][0]['spairport_current_network_information']]
 
       elif 'spairport_airport_local_wireless_networks' in access_points[0]['_items'][0]['spairport_airport_interfaces'][0]:
@@ -69,6 +69,7 @@ class AnalyzeNearNetworks(object):
         else:
           connected = 'false'
 
+        # Add to data store
         self.datastore.append({
           "date": exec_date,
           "name": ap['_name'],
