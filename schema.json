@@ -1,0 +1,32 @@
+{
+	"local_networks": {
+		"date": {
+			"type": "text", 
+			"default": "NULL"
+		},
+		"name": {
+			"type": "text",
+			"default": "NULL"
+		},
+		"bssid": {
+			"default": "NULL", 
+			"type": "text"
+		},
+		"channel": {
+			"default": "NULL", 
+			"type": "text"
+		},
+		"security": {
+			"default": "NULL", 
+			"type": "text"
+		},
+		"signal": {
+			"default": "NULL",
+			"type": "text"
+		},
+		"noise": {
+			"default": "NULL",
+			"type": "text"
+		}
+	}
+}
