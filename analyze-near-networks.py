@@ -2,10 +2,8 @@
 """
 This is a Titan module
 
-- Analyze Installed Applications 
-  keeps dibs on when applications
-  are installed and their install 
-  source
+- Analyze local wireless networks
+  including name and bssid/signal
 
 To use:
 
@@ -21,11 +19,10 @@ from titantools.data_science import DataScience
 from titantools.system import execute_command as shell_out
 from titantools import plist
 
-# from sys import argv
 from time import time, gmtime, strftime
 from os.path import dirname,basename,isfile
 from os import chmod
-from titantools.decorators import run_every_60
+#from titantools.decorators import run_every_5
 
 # Set Logging Status
 logging_enabled = False
@@ -33,7 +30,7 @@ logging_enabled = False
 # Set datastore directory
 DATASTORE = argv[1]
 
-@run_every_60
+#@run_every_5
 class AnalyzeNearNetworks(object):
     """ AnalyzeNearNetworks """
 
@@ -72,8 +69,8 @@ class AnalyzeNearNetworks(object):
         # Add to data store
         self.datastore.append({
           "date": exec_date,
-          "name": ap['_name'],
-          "bssid": ap['spairport_network_bssid'],
+          "ssid": ap['_name'],
+          "name": ap['spairport_network_bssid'],
           "channel": ap['spairport_network_channel'],
           "mode": ap['spairport_network_phymode'],
           "security": ap['spairport_security_mode'].replace('spairport_security_mode_', ''),
