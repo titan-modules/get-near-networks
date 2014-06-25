@@ -8,7 +8,7 @@
 			"type": "text",
 			"default": "NULL"
 		},
-		"bssid": {
+		"ssid": {
 			"default": "NULL", 
 			"type": "text"
 		},
